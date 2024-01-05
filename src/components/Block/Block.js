@@ -4,12 +4,19 @@ import BlockItem from '../BlockItem/BlockItem';
 import Transaction from '../Transaction/Transaction';
 import './Block.css';
 
+const FETCH_DELAY = 15000;
+
 function Block({ alchemy }) {
   const [block, setBlock] = useState();
 
   useEffect(() => {
-      alchemy.core.getBlockWithTransactions('latest')
+      const fetchBlock = () => alchemy.core.getBlockWithTransactions('latest')
         .then((block) => setBlock(block));
+
+      fetchBlock();
+
+      const intervalId = setInterval(() => fetchBlock(), FETCH_DELAY);
+      return () => clearInterval(intervalId);
   }, []);
 
     if (!block) {
