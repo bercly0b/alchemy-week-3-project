@@ -17,7 +17,7 @@ function Block({ alchemy }) {
 
       const intervalId = setInterval(() => fetchBlock(), FETCH_DELAY);
       return () => clearInterval(intervalId);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     if (!block) {
         return <div>Loading...</div>;
