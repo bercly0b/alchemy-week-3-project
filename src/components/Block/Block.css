@@ -1,0 +1,12 @@
+.Block {
+  padding: 8px;
+  border: 1px solid #000;
+}
+
+.Block-Title {
+    margin: 0 0 12px;
+}
+
+.Transactions {
+    padding: 12px;
+}

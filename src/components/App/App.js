@@ -1,6 +1,6 @@
 import { Alchemy, Network } from 'alchemy-sdk';
-import { useEffect, useState } from 'react';
 
+import Block from '../Block/Block';
 import './App.css';
 
 // Refer to the README doc for more information about using API
@@ -20,17 +20,11 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-  const [blockNumber, setBlockNumber] = useState();
-
-  useEffect(() => {
-    async function getBlockNumber() {
-      setBlockNumber(await alchemy.core.getBlockNumber());
-    }
-
-    getBlockNumber();
-  });
-
-  return <div className="App">Block Number: {blockNumber}</div>;
+  return (
+    <div className="App">
+      <Block alchemy={alchemy} />
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,12 @@
+.Transaction {
+    display: inline-block;
+
+    margin-top: 12px;
+    padding: 8px;
+    border: 1px solid #000;
+}
+
+.Transaction:first-of-type {
+    margin-top: 0;
+}
+
